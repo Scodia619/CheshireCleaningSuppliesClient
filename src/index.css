@@ -4,21 +4,68 @@
     font-family: "Quicksand";
 }
 
-.navbar{
-    padding:0;
-    background-color: #54F2F2;
-    margin-bottom: 1em;
-    height: 12vh;
-}
-
-.left{
-    width: 50%;
-}
-
-.right{
-    width: 30%;
-    padding-right: 1em;
-}
+.navbar-container {
+    position: relative;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #9bcdff;
+  }
+  
+  .left, .right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .left h1, .left h2, .right h2 {
+    margin: 0 1rem;
+  }
+  
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    position: fixed; 
+    left: 0;
+    top: 56px; 
+    width: 100vw;
+    color: black;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+    z-index: 1000;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (max-width: 600px) {
+    .left, .right {
+      display: none;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .left, .right {
+      display: none;
+    }
+  
+    .navbar{
+        display:flex;
+        justify-content: center;
+    }
+  }
 
 .product-image {
     width: 100px;
