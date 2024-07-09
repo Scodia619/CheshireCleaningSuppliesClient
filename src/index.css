@@ -1,68 +1,55 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+    margin:0;
+    padding: 0;
+    font-family: "Quicksand";
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.navbar{
+    padding:0;
+    background-color: #54F2F2;
+    margin-bottom: 1em;
+    height: 12vh;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.left{
+    width: 50%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.right{
+    width: 30%;
+    padding-right: 1em;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.product-image {
+    width: 100px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.product-card{
+    width: 400px;
+    height: 175px;
+    border: 1px solid gray
+}
+
+.card-img{
+    margin: 0;
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.product-image-container{
+    border-right: 1px solid #000;
+}
+
+.card-info{
+    background-color: #071108;
+    color: white;
+    padding: 10px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
 }
