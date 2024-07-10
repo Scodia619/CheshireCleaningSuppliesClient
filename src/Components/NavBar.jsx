@@ -15,7 +15,7 @@ function NavBar() {
 
   return (
     <div className="navbar-container">
-      <div className="navbar">
+      <div className="navbar mb-2">
         {isSmallScreen ? (
           <>
             <div className="menu-icon" onClick={toggleMenu}>

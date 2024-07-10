@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductCard from './ProductCard';
+import "../Styles/ProductContainer.css"
 
 function ProductsContainer() {
 
@@ -9,7 +10,7 @@ function ProductsContainer() {
         {Id: 3, Name: "Sanitizer", Description: "Cleans surfaces", Image_Url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB9mCr4dANqbOJbPxcXE3Few29sUc18nF3LQ&s"}]
     
   return (
-    <div className="d-flex justify-content-around">
+    <div className="product-card-container">
         {products.map(product => {
         return <ProductCard  key={product.Id} Product={product}/>
       })}

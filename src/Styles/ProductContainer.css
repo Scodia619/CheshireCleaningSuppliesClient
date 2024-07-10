@@ -1,0 +1,21 @@
+.product-card-container{
+    display:flex;
+    justify-content: space-around;
+  }
+
+@media (max-width: 600px) {
+
+    .product-card-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+}
+
+@media (max-width: 1050px){
+    .product-card-container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
