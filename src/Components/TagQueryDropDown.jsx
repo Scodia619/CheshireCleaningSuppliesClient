@@ -1,4 +1,5 @@
 import React from 'react'
+import "../Styles/TagQueryDropDown.css"
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 
 function TagQueryDropDown({setTag, Tag}) {
@@ -8,7 +9,7 @@ function TagQueryDropDown({setTag, Tag}) {
     }
 
     return (
-        <FormControl fullWidth>
+        <FormControl className="tag-drop-down">
         <InputLabel id="demo-simple-select-label">Filter By</InputLabel>
         <Select
           labelId="demo-simple-select-label"

@@ -22,7 +22,7 @@ function NavBar() {
               {menuActive ? <FiX size={24} /> : <FiMenu size={24} />}
             </div>
             {menuActive && (
-              <div className="dropdown-menu">
+              <div className="dropdown-nav-menu">
                 <h1>Cheshire Cleaning Supplies</h1>
                 <h2>Contact Us</h2>
                 <h2>Products</h2>

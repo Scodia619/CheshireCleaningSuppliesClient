@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "../Styles/ProductCard.css"
 
 const ProductCard = ({ Product }) => (
   <div className="product-card d-flex rounded-2 m-2">

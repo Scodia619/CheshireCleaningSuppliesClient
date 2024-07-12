@@ -1,0 +1,33 @@
+.product-image {
+    width: 100px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+}
+
+.product-card{
+    width: 325px;
+    height: 175px;
+    border: 1px solid gray
+}
+
+.card-img{
+    margin: 0;
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+}
+
+.product-image-container{
+    border-right: 1px solid #000;
+}
+
+.card-info{
+    background-color: #071108;
+    color: white;
+    padding: 10px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+}
