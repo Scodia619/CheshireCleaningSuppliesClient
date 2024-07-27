@@ -11,3 +11,9 @@
     margin-bottom: 1rem;
     padding: 0.25rem
 }
+
+@media (max-width: 600px){
+    .contact-form{
+        width: 80vw
+    }
+}

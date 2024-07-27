@@ -38,7 +38,7 @@ function ContactUsForm() {
           <input type="email" name="email" placeholder='email' className='contact-input' required/>
           <textarea name="message" placeholder='message' className='contact-input' required></textarea>
   
-          <button type="submit" className="btn btn-primary">Submit Form</button>
+          <button type="submit" className="btn btn-primary">Submit Enquiry</button>
   
         </form>
         <span>{result}</span>

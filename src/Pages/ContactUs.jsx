@@ -3,7 +3,10 @@ import ContactUsForm from '../Components/ContactUsForm'
 
 function ContactUs() {
   return (
-    <ContactUsForm />
+    <div className="form-container d-flex justify-content-center align-items-center flex-column">
+      <h3>Contact us about an enquiry</h3>
+      <ContactUsForm />
+    </div>
   )
 }
 

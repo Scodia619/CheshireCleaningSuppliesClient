@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   const [menuActive, setMenuActive] = useState(false);
@@ -24,9 +25,9 @@ function NavBar() {
             {menuActive && (
               <div className="dropdown-nav-menu">
                 <h1>Cheshire Cleaning Supplies</h1>
-                <h2>Contact Us</h2>
-                <h2>Products</h2>
-                <h2>Login</h2>
+                <Link to="/contact"><h2>Contact Us</h2></Link>
+                <Link to="/products"><h2>Products</h2></Link>
+                <Link to="/login"><h2>Login</h2></Link>
               </div>
             )}
           </>
@@ -34,11 +35,11 @@ function NavBar() {
           <>
             <div className="left d-flex justify-content-around align-items-center">
               <h1>Cheshire Cleaning Supplies</h1>
-              <h2>Contact Us</h2>
-              <h2>Products</h2>
+              <Link to="/contact"><h2>Contact Us</h2></Link>
+              <Link to="/products"><h2>Products</h2></Link>
             </div>
             <div className="right d-flex justify-content-end">
-              <h2>Login</h2>
+              <Link to="/login"><h2>Login</h2></Link>
             </div>
           </>
         )}
