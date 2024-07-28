@@ -5,7 +5,7 @@ import {BasketContext} from '../Contexts/basketContext';
 
 function ProductCard({ Product }){
 
-  const {basket, setBasket} = useContext(BasketContext)
+  const {setBasket} = useContext(BasketContext)
 
   const handleAdd = () => {
     setBasket((prevVals) => [...prevVals, Product])
