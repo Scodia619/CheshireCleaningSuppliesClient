@@ -10,7 +10,6 @@ function NavBar() {
   const [menuActive, setMenuActive] = useState(false);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-  console.log(menuActive)
 
   const toggleMenu = () => {
     setMenuActive(!menuActive);

@@ -6,8 +6,8 @@
 }
 
 .product-card{
-    width: 325px;
-    height: 175px;
+    width: 375px;
+    height: 200px;
     border: 1px solid gray
 }
 
@@ -30,5 +30,5 @@
     overflow-wrap: anywhere;
     border-top-right-radius: 0.25em;
     border-bottom-right-radius: 0.25em;
-    width: 175px
+    width: 225px
 }

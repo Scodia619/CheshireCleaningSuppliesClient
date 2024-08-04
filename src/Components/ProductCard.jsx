@@ -5,10 +5,18 @@ import {BasketContext} from '../Contexts/basketContext';
 
 function ProductCard({ Product }){
 
-  const {setBasket} = useContext(BasketContext)
+  const {basket, setBasket} = useContext(BasketContext)
 
   const handleAdd = () => {
-    setBasket((prevVals) => [...prevVals, Product])
+
+    var productInBasket = basket.find((product) => product.Id === Product.Id)
+    if(!productInBasket){
+      Product.Quantity = 1
+      setBasket((prevVals) => [...prevVals, Product])
+    }else{
+      Product.Quantity ++;
+    }
+
   }
 
   return (

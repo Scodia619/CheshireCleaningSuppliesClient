@@ -1,0 +1,21 @@
+.basket-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.basket-card{
+    width: 80%;
+    border: 1px solid black;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.basket-card-img{
+    margin: 0;
+    padding: 10px;
+    width: 150px;
+    height: 150px;
+}
