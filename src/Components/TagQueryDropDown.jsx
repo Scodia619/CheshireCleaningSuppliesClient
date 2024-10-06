@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Styles/TagQueryDropDown.css"
 import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { getTags } from '../../api';
 
 function TagQueryDropDown({setTag, Tag}) {
+
+  const [tags, setTags] = useState([])
+
+  useEffect(() => {
+    getTags()
+    .then((tags) => {
+      setTags(tags);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, [])
 
     const handleTag = (e) => {
         setTag(e.target.value)
@@ -19,9 +32,9 @@ function TagQueryDropDown({setTag, Tag}) {
           onChange={handleTag}
         >
           <MenuItem value="All">All</MenuItem>
-          <MenuItem value="Janitor">Janitor</MenuItem>
-          <MenuItem value="Cleaning">Cleaning</MenuItem>
-          <MenuItem value="Car">Car</MenuItem>
+          {tags.map(tag => {
+          return <MenuItem key={tag.tag_id} value={tag.tag_name}>{tag.tag_name}</MenuItem>
+        })}
         </Select>
       </FormControl>
       );

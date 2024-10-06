@@ -1,3 +1,7 @@
+.page-title{
+    margin-left: 0.7em;
+}
+
 .product-image {
     width: 100px;
     height: 150px;
@@ -31,4 +35,21 @@
     border-top-right-radius: 0.25em;
     border-bottom-right-radius: 0.25em;
     width: 225px
+}
+
+.btn-add{
+    margin-left: 10px
+}
+
+.btn-sub{
+    margin-right: 10px
+}
+
+.quantity{
+    display: flex;
+    align-items: center;
+}
+
+.quantity-info{
+    margin-bottom: 0;
 }

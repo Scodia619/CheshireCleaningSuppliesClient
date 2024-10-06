@@ -9,7 +9,7 @@ function ProductCard({ Product }){
 
   const handleAdd = () => {
 
-    var productInBasket = basket.find((product) => product.Id === Product.Id)
+    var productInBasket = basket.find((product) => product.product_id === Product.product_id)
     if(!productInBasket){
       Product.Quantity = 1
       setBasket((prevVals) => [...prevVals, Product])
@@ -22,12 +22,11 @@ function ProductCard({ Product }){
   return (
   <div className="product-card d-flex rounded-2 m-2">
     <div className='product-image-container d-flex justify-content-start align-items-center'>
-      <img className="card-img rounded" src={Product.Image_Url} alt={Product.Name} />
+      <img className="card-img rounded" src={Product.image_url} alt={Product.name} />
     </div>
     <div className='d-flex flex-column justify-content-between card-info'>
       <div className="d-flex flex-column justify-content-start align-items-start pl-2">
-        <h2>{Product.Name}</h2>
-        <p>{Product.Description}</p>
+        <h6>{Product.name}</h6>
       </div>
       <button className='btn btn-primary' onClick={handleAdd}>Add To Basket</button>
     </div>
