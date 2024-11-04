@@ -4,7 +4,6 @@ import "../Styles/ContactUsForm.css"
 function ContactUsForm() {
 
   const emailkey = import.meta.env.VITE_EMAIL_KEY
-  console.log(emailkey)
 
     const [result, setResult] = React.useState("");
 

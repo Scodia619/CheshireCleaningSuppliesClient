@@ -18,3 +18,13 @@ export const getTags = async () => {
     return api.get(`/tags`)
     .then(res => res.data.tags)
 }
+
+export const postLogin = async (loginData) => {
+    return api.post(`/user/login`, loginData)
+    .then(res => res.data.user)
+}
+
+export const postCreateUser = async (createUserData) => {
+    return api.post(`/user`, createUserData)
+    .then(res => res.data.user)
+}

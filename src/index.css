@@ -67,3 +67,23 @@
     display: block;
   }
 }
+
+.logout-button {
+
+  background-color: #9bcdff;
+  color: black;
+  cursor: pointer;
+  font-family: "Quicksand";
+  font-size: 2rem;
+  font-weight: 500;
+  border: none;
+}
+
+.logout-button:hover {
+  color: white;
+}
+
+.logout-button:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); 
+}

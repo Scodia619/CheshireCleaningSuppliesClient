@@ -14,7 +14,20 @@
     flex-direction: column;
     align-items: start;
     max-width: 50vw;
-    height: 14em;
+    height: 17.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.create-user-form{
+    border: 1px solid black;
+    border-radius: 1em;
+    padding: 1em;
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 50vw;
+    height: 36em;
     font-weight: bold;
     font-size: 1.1em;
 }
@@ -36,6 +49,12 @@ input:-webkit-autofill {
     border-radius: 0.5em;
     border: 1px solid #9bcdff;
     padding: 0.25em;
+    background-color: #9bcdff;
+    width: 100%;
+}
+
+hr{
+    height: 2px;
     background-color: #9bcdff;
     width: 100%;
 }
