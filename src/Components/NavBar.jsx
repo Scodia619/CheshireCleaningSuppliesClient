@@ -47,12 +47,12 @@ function NavBar() {
         ) : (
           <>
             <div className="left d-flex justify-content-around align-items-center">
-              <h1>Cheshire Cleaning Supplies</h1>
+              <Link to="/"><h1>Cheshire Cleaning Supplies</h1></Link>
               <Link to="/contact"><h2>Contact Us</h2></Link>
               <Link to="/products"><h2>Products</h2></Link>
             </div>
             <div className="right d-flex justify-content-end">
-              <Link to="/basket"><h2>{basket.length}</h2></Link>
+              <Link to="/basket"><h2>Basket: {basket.length}</h2></Link>
                 {user ? (
                   <div className="d-flex align-items-center justify-content-around">
                     <h2>Hi, {user.username}</h2>
