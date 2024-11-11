@@ -49,3 +49,14 @@
     justify-content: space-around;
     width: 600px
   }
+
+  @media (max-width: 576px) {
+    .images-container {
+      width: 100%; /* Full width on mobile */
+      justify-content: center; /* Center content on mobile */
+    }
+
+    a:hover{
+        color: #9bcdff !important;
+    }
+  }
