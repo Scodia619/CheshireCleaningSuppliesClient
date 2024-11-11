@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import "../Styles/LoginForm.css";
 import { postLogin } from '../../api';
 import { ToastContainer, toast } from "react-toastify";
@@ -7,46 +7,47 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from '../Contexts/userContext';
 
 function LoginForm({ setLoginFormDisplay }) {
-
   const navigate = useNavigate();
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const {setUser} = useContext(UserContext)
+  const [loggingIn, setLoggingIn] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("")
+  const { setUser } = useContext(UserContext);
 
   const notify = (message) => {
-    toast.error(message, {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    toast.error(message);
   };
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    const loginData = {
-      username: username,
-      password: password
+    setLoggingIn(true);
+    const loginData = { username, password };
+
+    try {
+      const user = await postLogin(loginData);
+      setUser(user);
+      setLoggingIn(false);
+      navigate("/");
+    } catch (error) {
+      setLoggingIn(false);
+      setError(true);
+      setErrorMessage(error.response?.data?.msg || "An error occurred")
     }
-    postLogin(loginData)
-      .then((user) => {
-        setUser(user)
-        navigate("/");
-      })
-      .catch(({ response: { data } }) => {
-        notify(data.msg);
-      });
   };
 
   const handleChangeForm = (event) => {
-    event.preventDefault()
-    setLoginFormDisplay(false)
+    event.preventDefault();
+    setLoginFormDisplay(false);
+  };
+
+  if (loggingIn) {
+    return <h2>Logging In</h2>;
+  }
+
+  if(error){
+    notify(errorMessage)
+    setError(false);
   }
 
   return (
@@ -72,7 +73,7 @@ function LoginForm({ setLoginFormDisplay }) {
         />
         <button type="submit" className="form-submit-button" onClick={handleLogin}>Login</button>
         <hr />
-        <button type="submit" className="form-submit-button" onClick={handleChangeForm}>Create User</button>
+        <button type="button" className="form-submit-button" onClick={handleChangeForm}>Create User</button>
       </form>
 
       <ToastContainer

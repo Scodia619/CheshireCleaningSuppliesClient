@@ -19,6 +19,8 @@ function CreateUserForm({ setLoginFormDisplay }) {
     const [postcode, setPostcode] = useState('');
     const [password, setPassword] = useState('');
 
+    const [creatingUser, setCreatingUser] = useState(false);
+
     const notify = (message) => {
         toast.error(message, {
             position: "top-center",
@@ -34,6 +36,7 @@ function CreateUserForm({ setLoginFormDisplay }) {
 
     const handleCreateUser = (event) => {
         event.preventDefault();
+        setCreatingUser(true);
         const createUserData = {
             username,
             email,
@@ -45,6 +48,7 @@ function CreateUserForm({ setLoginFormDisplay }) {
         postCreateUser(createUserData)
             .then((user) => {
                 setUser(user)
+                setCreatingUser(false);
                 navigate("/");
             })
             .catch(({ response: { data } }) => {
@@ -56,6 +60,10 @@ function CreateUserForm({ setLoginFormDisplay }) {
         event.preventDefault();
         setLoginFormDisplay(true);
     };
+
+    if(creatingUser){
+        return <h1>Creating User</h1>
+    }
 
     return (
         <div>

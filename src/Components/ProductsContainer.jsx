@@ -10,11 +10,14 @@ function ProductsContainer() {
   const [products, setProducts] = useState([])
   const [tag, setTag] = useState("All")
 
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     if(tag === "All"){
       getProducts()
       .then((products) => {
         setProducts(products);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -29,6 +32,10 @@ function ProductsContainer() {
       });
     }
   }, [tag])
+
+  if(loading){
+    return <h1>Loading</h1>
+  }
 
   return (
     <div className="product-container">

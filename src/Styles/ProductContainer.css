@@ -15,7 +15,8 @@
 }
 
 .tag-container{
-    width: 90%
+    width: 95%;
+    margin-left: 1em;
 }
 
 @media (max-width: 750px) {
