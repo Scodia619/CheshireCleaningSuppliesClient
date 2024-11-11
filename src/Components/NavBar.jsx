@@ -54,21 +54,21 @@ function NavBar() {
         ) : (
           <>
             <div className="left d-flex justify-content-around align-items-center">
-              <Link to="/"><h1>Cheshire Cleaning Supplies</h1></Link>
-              <Link to="/contact"><h2>Contact Us</h2></Link>
+              <Link to="/"><h1 >Cheshire Cleaning Supplies</h1></Link>
+              <Link to="/contact"><h2 >Contact Us</h2></Link>
               {user && (
-                <Link to="/products"><h2>Products</h2></Link>
+                <Link to="/products"><h2 >Products</h2></Link>
               )}
             </div>
             <div className="right d-flex justify-content-end">
               {user ? (
                 <div className="d-flex align-items-center justify-content-around">
-                  <Link to="/basket"><h2>Basket: {basket.length}</h2></Link>
+                  <Link to="/basket"><h2 >Basket: {basket.length}</h2></Link>
                   <h2>Hi, {user.username}</h2>
                   <button onClick={handleLogout} className="logout-button">Logout</button>
                 </div>
               ) : (
-                <Link to="/login"><h2>Login</h2></Link>
+                <Link to="/login"><h2 >Login</h2></Link>
               )}
             </div>
           </>
