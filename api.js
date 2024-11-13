@@ -28,3 +28,8 @@ export const postCreateUser = async (createUserData) => {
     return api.post(`/user`, createUserData)
     .then(res => res.data.user)
 }
+
+export const postCreateOrder = async (orderDetails) => {
+    return api.post(`/order`, orderDetails)
+    .then(res => res.data.order)
+}
