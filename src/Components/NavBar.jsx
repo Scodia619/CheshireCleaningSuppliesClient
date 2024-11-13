@@ -15,8 +15,6 @@ function NavBar() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const navigate = useNavigate()
 
-  console.log(user)
-
   const toggleMenu = () => {
     setMenuActive(!menuActive);
   };
