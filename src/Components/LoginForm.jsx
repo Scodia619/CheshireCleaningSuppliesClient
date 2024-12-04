@@ -28,7 +28,7 @@ function LoginForm({ setLoginFormDisplay }) {
       const user = await postLogin(loginData);
       setUser(user);
       setLoggingIn(false);
-      navigate("/");
+      navigate("/orders");
     } catch (error) {
       setLoggingIn(false);
       setError(true);

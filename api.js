@@ -33,3 +33,18 @@ export const postCreateOrder = async (orderDetails) => {
     return api.post(`/order`, orderDetails)
     .then(res => res.data.order)
 }
+
+export const getOrders = async () => {
+    return api.get("/order")
+    .then(res => res.data.orders)
+}
+
+export const updateOrder = async (orderId, orderStatus) => {
+    return api.patch(`/order/update/${orderId}?orderStatus=${orderStatus}`)
+    .then(res => res.data.updatedOrder)
+}
+
+export const updatePaymentStatusOrder = async (orderId) => {
+    return api.patch(`/order/update/${orderId}/payment`)
+    .then(res => res.data.updatedOrder)
+}

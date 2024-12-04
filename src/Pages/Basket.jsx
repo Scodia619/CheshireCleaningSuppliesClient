@@ -27,7 +27,6 @@ function Basket() {
   };
 
   const stripBasket = (basket) => {
-    console.log(basket)
     return basket.map((product) => ({
       product_id: product.product_id,
       quantity: product.Quantity,

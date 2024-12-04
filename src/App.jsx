@@ -5,6 +5,7 @@ import ProductsPage from "./Pages/ProductsPage"
 import ContactUs from "./Pages/ContactUs"
 import LogIn from "./Pages/LogIn"
 import Basket from "./Pages/Basket"
+import ViewOrdersContainer from "./Components/ViewOrdersContainer"
 
 function App() {
  
@@ -18,6 +19,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />}/>
         <Route path="/login" element={<LogIn />} />
         <Route path="/basket" element={<Basket />} />
+        <Route path="/orders" element={<ViewOrdersContainer />} />
       </Routes>
     </>
   )
