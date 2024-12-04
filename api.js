@@ -39,6 +39,11 @@ export const getOrders = async () => {
     .then(res => res.data.orders)
 }
 
+export const getOrdersByUser = async (orderId) => {
+    return api.get(`/order/${orderId}`)
+    .then(res => res.data.orders)
+}
+
 export const updateOrder = async (orderId, orderStatus) => {
     return api.patch(`/order/update/${orderId}?orderStatus=${orderStatus}`)
     .then(res => res.data.updatedOrder)

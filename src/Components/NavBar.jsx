@@ -41,6 +41,7 @@ function NavBar() {
                   <div>
                     <Link to="/products" onClick={toggleMenu}><h2>Products</h2></Link>
                     <Link to="/basket" onClick={toggleMenu}><h2>Basket: {basket.length}</h2></Link>
+                    <Link to="/orders" onClick={toggleMenu}><h2>Past Orders</h2></Link>
                     <h2 onClick={handleLogout}>Logout</h2>
                   </div>
                 ) : (
@@ -55,7 +56,10 @@ function NavBar() {
               <Link to="/"><h1 >Cheshire Cleaning Supplies</h1></Link>
               <Link to="/contact"><h2 >Contact Us</h2></Link>
               {user && (
-                <Link to="/products"><h2 >Products</h2></Link>
+                <>
+                  <Link to="/products"><h2 >Products</h2></Link>
+                  <Link to="/orders"><h2>Past Orders</h2></Link>
+                </>
               )}
             </div>
             <div className="right d-flex justify-content-end">

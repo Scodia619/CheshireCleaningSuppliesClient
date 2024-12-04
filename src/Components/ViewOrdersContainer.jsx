@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../Contexts/userContext';
-import { getOrders, updateOrder, updatePaymentStatusOrder } from '../../api';
+import { getOrders, getOrdersByUser, updateOrder, updatePaymentStatusOrder } from '../../api';
 import "../Styles/Orders.css";
 
 import OrderCard from './OrderCard';
@@ -8,8 +8,8 @@ import OrderCard from './OrderCard';
 function ViewOrdersContainer() {
     const { user } = useContext(UserContext);
 
-    const [orders, setOrders] = useState([]); 
-    const [filteredOrders, setFilteredOrders] = useState([]); 
+    const [orders, setOrders] = useState([]);
+    const [filteredOrders, setFilteredOrders] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [currentOrder, setCurrentOrder] = useState(null);
     const [filters, setFilters] = useState({
@@ -19,14 +19,25 @@ function ViewOrdersContainer() {
     });
 
     useEffect(() => {
-        getOrders()
-            .then((orders) => {
-                setOrders(orders);
-                setFilteredOrders(orders);
-            })
-            .catch((err) => {
-                console.error("Failed to fetch orders:", err);
-            });
+        if (user.admin) {
+            getOrders()
+                .then((orders) => {
+                    setOrders(orders);
+                    setFilteredOrders(orders);
+                })
+                .catch((err) => {
+                    console.error("Failed to fetch orders:", err);
+                });
+        } else {
+            getOrdersByUser(user.user_id)
+                .then((orders) => {
+                    setOrders(orders);
+                    setFilteredOrders(orders);
+                })
+                .catch((err) => {
+                    console.error("Failed to fetch orders:", err);
+                });
+        }
     }, []);
 
     useEffect(() => {
@@ -47,10 +58,10 @@ function ViewOrdersContainer() {
                     if (order.paid !== isPaid) return false;
                 }
 
-                return true; 
+                return true;
             });
 
-            setFilteredOrders(filtered); 
+            setFilteredOrders(filtered);
         };
 
         applyFilters();
@@ -180,13 +191,13 @@ function ViewOrdersContainer() {
             ) : (
                 <p>No orders available.</p>
             )}
-            
+
             {showModal && (
                 <div className="order-modal">
                     <h3>Order Details: </h3>
                     <OrderCard orderDetails={currentOrder} />
                     <div className="options">
-                        {currentOrder.status === "Unconfirmed" && (
+                        {currentOrder.status === "Unconfirmed" && user.admin && (
                             <>
                                 <button className="modal-button confirm" onClick={handleConfirm}>
                                     Confirm Order
@@ -196,7 +207,7 @@ function ViewOrdersContainer() {
                                 </button>
                             </>
                         )}
-                        {currentOrder.status === "Confirmed" && (
+                        {currentOrder.status === "Confirmed" && user.admin && (
                             <>
                                 <button className="modal-button confirm" onClick={handlePaid}>
                                     Confirm Paid
