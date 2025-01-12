@@ -53,3 +53,8 @@ export const updatePaymentStatusOrder = async (orderId) => {
     return api.patch(`/order/update/${orderId}/payment`)
     .then(res => res.data.updatedOrder)
 }
+
+export const updateUserDetails = async (user) => {
+    return api.patch(`/user`, user)
+    .then(res => res.data.user)
+}

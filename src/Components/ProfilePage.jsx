@@ -1,45 +1,29 @@
-import React, { useContext, useState } from 'react';
-import "../Styles/LoginForm.css";
-import { postCreateUser } from '../../api';
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from 'react'
 import { UserContext } from '../Contexts/userContext';
 import { handlePhoneChange } from '../utils/ValidatePhoneNumber';
+import { updateUserDetails } from '../../api';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function CreateUserForm({ setLoginFormDisplay }) {
+function ProfilePage() {
 
-    const navigate = useNavigate()
+    const { user, setUser } = useContext(UserContext);
 
-    const {setUser} = useContext(UserContext)
-
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [address, setAddress] = useState('');
-    const [postcode, setPostcode] = useState('');
+    const [username, setUsername] = useState(user.username);
+    const [email, setEmail] = useState(user.email);
+    const [phone, setPhone] = useState(user.phone);
+    const [address, setAddress] = useState(user.address);
+    const [postcode, setPostcode] = useState(user.postcode);
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-
-    const [creatingUser, setCreatingUser] = useState(false);
+    const [error, setError] = useState('')
 
     const notify = (message) => {
-        toast.error(message, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    };
+        toast.success(message);
+      };
 
-    const handleCreateUser = (event) => {
+    const handleUpdateUser = async (event) => {
         event.preventDefault();
-        setCreatingUser(true);
-        const createUserData = {
+        const userData = {
             username,
             email,
             phone,
@@ -47,28 +31,17 @@ function CreateUserForm({ setLoginFormDisplay }) {
             postcode,
             password,
         };
-        postCreateUser(createUserData)
-            .then((user) => {
-                setUser(user)
-                setCreatingUser(false);
-                navigate("/");
-            })
-            .catch(({ response: { data } }) => {
-                notify(data.msg);
-            });
+        try{ 
+            const user = await updateUserDetails(userData);
+            setUser(user)
+            notify("User Updated Successfully")
+        }catch(err){
+            console.error("Failed to update User:", err);
+        }
     };
-
-    const handleChangeForm = (event) => {
-        event.preventDefault();
-        setLoginFormDisplay(true);
-    };
-
-    if(creatingUser){
-        return <h1>Creating User</h1>
-    }
 
     return (
-        <div>
+        <>
             <form className="create-user-form">
                 <label htmlFor="username">Username:</label>
                 <input
@@ -77,6 +50,7 @@ function CreateUserForm({ setLoginFormDisplay }) {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     className="form-label"
+                    readOnly
                     required
                 />
 
@@ -87,6 +61,7 @@ function CreateUserForm({ setLoginFormDisplay }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="form-label"
+                    readOnly
                     required
                 />
 
@@ -131,29 +106,25 @@ function CreateUserForm({ setLoginFormDisplay }) {
                     required
                 />
 
-                <button type="submit" className="form-submit-button" onClick={handleCreateUser}>
-                    Create User
-                </button>
-                <hr />
-                <button type="button" className="form-submit-button" onClick={handleChangeForm}>
-                    Login
+                <button type="submit" className="form-submit-button" onClick={handleUpdateUser}>
+                    Update Profile
                 </button>
             </form>
 
             <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
-        </div>
-    );
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                  />
+        </>
+    )
 }
 
-export default CreateUserForm;
+export default ProfilePage

@@ -6,6 +6,7 @@ import ContactUs from "./Pages/ContactUs"
 import LogIn from "./Pages/LogIn"
 import Basket from "./Pages/Basket"
 import ViewOrdersContainer from "./Components/ViewOrdersContainer"
+import ProfilePage from "./Components/ProfilePage"
 
 function App() {
  
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/orders" element={<ViewOrdersContainer />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </>
   )

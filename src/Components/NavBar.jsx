@@ -42,6 +42,7 @@ function NavBar() {
                     <Link to="/products" onClick={toggleMenu}><h2>Products</h2></Link>
                     <Link to="/basket" onClick={toggleMenu}><h2>Basket: {basket.length}</h2></Link>
                     <Link to="/orders" onClick={toggleMenu}><h2>Past Orders</h2></Link>
+                    <Link to="/profile" onClick={toggleMenu}><h2>Profile</h2></Link>
                     <h2 onClick={handleLogout}>Logout</h2>
                   </div>
                 ) : (
@@ -59,6 +60,7 @@ function NavBar() {
                 <>
                   <Link to="/products"><h2 >Products</h2></Link>
                   <Link to="/orders"><h2>Past Orders</h2></Link>
+                  <Link to="/profile"><h2>Profile</h2></Link>
                 </>
               )}
             </div>
